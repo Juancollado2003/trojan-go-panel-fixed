@@ -22,10 +22,10 @@ trojan-go 多用户多节点管理面板
 
 ### 主节点部署
 
-`source <(curl -sL https://git.io/install-trojan)`
+`source <(curl -sL https://raw.githubusercontent.com/Juancollado2003/trojan-go-panel-fixed/main/install.sh)`
 
 ### 子节点部署
-`source <(curl -sL https://git.io/install-trojan) --worknode 子节点域名 主节点域名 子节点名称 主节点数据库密码`
+`source <(curl -sL https://raw.githubusercontent.com/Juancollado2003/trojan-go-panel-fixed/main/install.sh) --worknode 子节点域名 主节点域名 子节点名称 主节点数据库密码`
 
 ## 展示
 
