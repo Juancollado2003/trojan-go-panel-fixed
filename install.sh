@@ -21,7 +21,7 @@ colorEcho(){
 checkSys() {
 
     # 修改时区
-    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    cp /usr/share/zoneinfo/America/Santo_Domingo /etc/localtime
 
     # 安装前系统检查
     [ $(id -u) != "0" ] && { colorEcho ${RED} "错误：您必须使用 root 用户来运行此脚本\nError: You must be root to run this script"; exit 1; }
@@ -49,7 +49,8 @@ checkSys() {
             return 1
         fi
         host_ip=$(curl "ipinfo.io/ip" 2> /dev/null)
-        domain_ip=$(ping -c 2 $input | head -2 | tail -1 | awk '{print $5}' | sed 's/[(:)]//g')
+        #domain_ip=$(ping -c 2 $input | head -2 | tail -1 | awk '{print $5}' | sed 's/[(:)]//g')
+        domain_ip=$(dig +short $input)
         if [ x"$host_ip" != x"$domain_ip" ];then
             colorEcho $YELLOW "域名解析ip($domain_ip)与本机ip($host_ip)不同! 如果该域名曾配置CND, 请将其关闭"
             return 1
